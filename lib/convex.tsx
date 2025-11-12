@@ -1,8 +1,11 @@
 import { ConvexProvider, ConvexReactClient } from "convex/react";
 import { ReactNode } from "react";
 import "react-native-get-random-values";
+import Constants from "expo-constants";
 
-const convex = new ConvexReactClient(process.env.EXPO_PUBLIC_CONVEX_URL!, {
+const convexUrl = process.env.EXPO_PUBLIC_CONVEX_URL || Constants.expoConfig?.extra?.convexUrl;
+
+const convex = new ConvexReactClient(convexUrl!, {
   unsavedChangesWarning: false,
 });
 
