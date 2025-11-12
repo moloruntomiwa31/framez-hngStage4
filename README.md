@@ -5,9 +5,10 @@ A mobile social media app built with Expo and Convex backend.
 ## Features
 
 - User authentication (sign-up, login, logout)
-- Create and share posts
-- View feed of all posts
-- User profile with personal posts
+- Create and share posts with text and/or images
+- View feed of all posts (most recent first)
+- User profile with avatar, info, and personal posts
+- Real-time data sync
 
 ## Setup
 
@@ -16,15 +17,24 @@ A mobile social media app built with Expo and Convex backend.
 npm install
 ```
 
-2. Set up Convex:
+2. Create `.env.local` from example:
+```bash
+cp .env.example .env.local
+```
+
+3. Set up Convex (choose one):
+
+**For local development:**
 ```bash
 npx convex dev
 ```
+This will create a local Convex deployment and update `.env.local` automatically.
 
-3. Copy the Convex URL from the terminal and add it to `.env.local`:
+**For cloud deployment:**
+```bash
+npx convex deploy --yes
 ```
-EXPO_PUBLIC_CONVEX_URL=https://your-deployment-url.convex.cloud
-```
+Then update `.env.local` with the cloud URL shown in the terminal.
 
 4. Start the app:
 ```bash
